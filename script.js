@@ -1,15 +1,15 @@
 const data = {
   aws: {
     title: "Amazon Web Services (AWS)",
-    description: "Popular cloud platform offering EC2, S3, Lambda, and more."
+    description: "AWS provides servers, storage, networking, remote computing, and more."
   },
   azure: {
     title: "Microsoft Azure",
-    description: "Microsoft’s cloud offering with DevOps, ML, and web hosting."
+    description: "Azure offers cloud solutions for app hosting, databases, AI, and analytics."
   },
   gcp: {
     title: "Google Cloud Platform (GCP)",
-    description: "Google’s cloud services for compute, storage, and AI."
+    description: "GCP includes cloud computing, storage, Kubernetes, and ML tools by Google."
   }
 };
 
