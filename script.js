@@ -1,27 +1,18 @@
-const data = {
-  aws: {
-    title: "Amazon Web Services (AWS)",
-    description: "AWS provides servers, storage, networking, remote computing, and more."
-  },
-  azure: {
-    title: "Microsoft Azure",
-    description: "Azure offers cloud solutions for app hosting, databases, AI, and analytics."
-  },
-  gcp: {
-    title: "Google Cloud Platform (GCP)",
-    description: "GCP includes cloud computing, storage, Kubernetes, and ML tools by Google."
-  }
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOptions = {
+  threshold: 0,
+  rootMargin: "0px 0px -100px 0px"
 };
 
-function showInfo(service) {
-  document.getElementById("info-box").classList.remove("hidden");
-  document.getElementById("service-title").innerText = data[service].title;
-  document.getElementById("service-description").innerText = data[service].description;
-}
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('appear');
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
 
-function toggleMode() {
-  const body = document.body;
-  const isDark = body.style.background === "white";
-  body.style.background = isDark ? "#121212" : "white";
-  body.style.color = isDark ? "#fff" : "#000";
-}
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
+});
