@@ -4,32 +4,43 @@ body {
   background: #121212;
   color: #fff;
   text-align: center;
-  transition: background 0.3s, color 0.3s;
+  transition: 0.3s ease;
 }
 
 .container {
   padding: 20px;
 }
 
-.card {
+h1, h2 {
+  margin-bottom: 10px;
+}
+
+.about, .project {
+  margin-top: 25px;
   background: #1f1f1f;
-  margin: 10px auto;
   padding: 15px;
-  width: 80%;
+  border-radius: 12px;
+}
+
+.card {
+  background: #2d2d2d;
+  margin: 10px auto;
+  padding: 12px;
   border-radius: 10px;
+  width: 80%;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .card:hover {
-  background: #333;
-  transform: scale(1.02);
+  background: #444;
+  transform: scale(1.03);
 }
 
 #info-box {
   margin-top: 20px;
+  background: #333;
   padding: 15px;
-  background: #2a2a2a;
   border-radius: 10px;
 }
 
@@ -38,9 +49,11 @@ body {
 }
 
 .toggle-btn {
-  margin-top: 20px;
-  padding: 10px 15px;
+  margin-top: 25px;
+  padding: 10px 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  background: #444;
+  color: white;
 }
