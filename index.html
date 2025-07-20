@@ -2,23 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Cloud Services</title>
+  <title>Sathish P's Cloud Project</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Cloud Services</h1>
+    <h1>Welcome to Sathish P's Project</h1>
 
-    <div class="card" onclick="showInfo('aws')">AWS</div>
-    <div class="card" onclick="showInfo('azure')">Azure</div>
-    <div class="card" onclick="showInfo('gcp')">Google Cloud</div>
+    <section class="about">
+      <h2>👨‍💻 About Me</h2>
+      <p><strong>Name:</strong> P Sathish</p>
+      <p><strong>Degree:</strong> B.Sc. Computer Science (2025)</p>
+      <p><strong>College:</strong> Sindhi College</p>
+      <p><strong>Skills:</strong> Python, Excel, Tableau, HTML, CSS, JavaScript, Cloud (EC2, S3)</p>
+      <p><strong>Hobby:</strong> Cricket</p>
+    </section>
 
-    <div id="info-box" class="hidden">
-      <h2 id="service-title"></h2>
-      <p id="service-description"></p>
-    </div>
+    <section class="project">
+      <h2>☁️ Cloud Services Info</h2>
+      <div class="card" onclick="showInfo('aws')">AWS</div>
+      <div class="card" onclick="showInfo('azure')">Azure</div>
+      <div class="card" onclick="showInfo('gcp')">Google Cloud</div>
 
-    <button onclick="toggleMode()" class="toggle-btn">🌙 Light/Dark</button>
+      <div id="info-box" class="hidden">
+        <h3 id="service-title"></h3>
+        <p id="service-description"></p>
+      </div>
+    </section>
+
+    <button onclick="toggleMode()" class="toggle-btn">🌙 Toggle Light/Dark</button>
   </div>
 
   <script src="script.js"></script>
