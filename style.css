@@ -1,65 +1,122 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0e0e0e;
-  color: #fff;
+/* Reset and basic setup */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0f0f0f;
+  color: #fff;
   line-height: 1.6;
-}
-
-.header, .about, .skills, .projects, .contact {
   padding: 20px;
-  margin: 20px;
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.05);
 }
 
-.header h1 span {
-  color: #4ade80;
-}
-
-h2 {
-  color: #22d3ee;
-}
-
-ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-.project-card {
-  background-color: #2a2a2a;
-  padding: 10px;
-  margin: 10px 0;
-  border-left: 4px solid #4ade80;
-}
-
-a {
-  color: #4ade80;
-  text-decoration: none;
-}
-
-.footer {
+/* Header */
+header {
   text-align: center;
-  padding: 10px;
-  margin-top: 30px;
-  font-size: 14px;
+  padding: 40px 10px;
+  background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+  border-radius: 20px;
+  box-shadow: 0 0 15px #333;
+  margin-bottom: 30px;
+}
+
+header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-bottom: 15px;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+header p {
   color: #aaa;
+  font-size: 1em;
+}
+
+/* Section titles */
+section h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #00ffd5;
+}
+
+/* Section layout */
+section {
+  background: #1a1a1a;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #222;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+ul li::before {
+  content: "✔";
+  color: #00ffb3;
+  position: absolute;
+  left: 0;
+}
+
+/* Certificates */
+.certificates img {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 2px solid #00ffd5;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #999;
 }
 
 /* Animations */
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
 }
 
-.fade-in.appear {
+.fade-in-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.delay {
-  transition-delay: 0.3s;
+/* Responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  section h2 {
+    font-size: 1.3em;
+  }
+
+  body {
+    padding: 10px;
+  }
 }
