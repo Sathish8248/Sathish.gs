@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sathish P's Cloud Project</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>P Sathish Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to Sathish P's Project</h1>
+  <header class="header">
+    <h1 class="fade-in">Hi, I'm <span>Sathish P</span></h1>
+    <p class="fade-in delay">B.Sc. Computer Science | Sindhi College | 2025</p>
+  </header>
 
-    <section class="about">
-      <h2>👨‍💻 About Me</h2>
-      <p><strong>Name:</strong> P Sathish</p>
-      <p><strong>Degree:</strong> B.Sc. Computer Science (2025)</p>
-      <p><strong>College:</strong> Sindhi College</p>
-      <p><strong>Skills:</strong> Python, Excel, Tableau, HTML, CSS, JavaScript, Cloud (EC2, S3)</p>
-      <p><strong>Hobby:</strong> Cricket</p>
-    </section>
+  <section class="about fade-in">
+    <h2>About Me</h2>
+    <p>Aspiring Cloud & Web Developer. I build mobile-friendly websites using HTML, CSS, and JavaScript. Interested in cloud and DevOps tools like AWS and Docker.</p>
+  </section>
 
-    <section class="project">
-      <h2>☁️ Cloud Services Info</h2>
-      <div class="card" onclick="showInfo('aws')">AWS</div>
-      <div class="card" onclick="showInfo('azure')">Azure</div>
-      <div class="card" onclick="showInfo('gcp')">Google Cloud</div>
+  <section class="skills fade-in delay">
+    <h2>Skills</h2>
+    <ul>
+      <li>Python</li>
+      <li>Excel</li>
+      <li>Tableau</li>
+      <li>HTML & CSS</li>
+      <li>JavaScript</li>
+      <li>Node.js</li>
+      <li>Docker (Beginner)</li>
+      <li>AWS EC2 & S3 (Setup basics)</li>
+    </ul>
+  </section>
 
-      <div id="info-box" class="hidden">
-        <h3 id="service-title"></h3>
-        <p id="service-description"></p>
-      </div>
-    </section>
+  <section class="projects fade-in">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Movie Recommendation Chatbot</h3>
+      <p>Built using Node.js, JavaScript (Vite), deployed from VS Code. Recommends movies via chat.</p>
+    </div>
+    <div class="project-card">
+      <h3>Personal Portfolio Site</h3>
+      <p>Designed and deployed from mobile using Vercel. Mobile-optimized web design with GitHub integration.</p>
+    </div>
+  </section>
 
-    <button onclick="toggleMode()" class="toggle-btn">🌙 Toggle Light/Dark</button>
-  </div>
+  <section class="contact fade-in delay">
+    <h2>Contact Me</h2>
+    <p>Email: [Your Email Here]</p>
+    <p>GitHub: <a href="https://github.com/Sathish8248" target="_blank">Sathish8248</a></p>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 P Sathish</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
