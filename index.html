@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Card for Gayathri</title>
+<title>Birthday Card for Gayathri 💕</title>
 <style>
 body {
   margin:0; padding:0;
   display:flex; justify-content:center; align-items:center;
-  height:100vh;
-  background: linear-gradient(#ffe6f0, #fff0f5);
+  height:100vh; overflow:hidden;
   font-family:'Arial',sans-serif;
-  overflow:hidden;
+  background: linear-gradient(#ffe6f0,#fff0f5);
   position:relative;
 }
 #muteBtn {
-  position: fixed; top: 10px; right: 15px;
+  position: fixed; top:10px; right:15px;
   background: rgba(255,255,255,0.6);
-  border: none; font-size:1.5em; padding:5px 10px;
+  border:none; font-size:1.5em; padding:5px 10px;
   border-radius:10px; cursor:pointer; z-index:100;
 }
 .card {
@@ -30,8 +29,7 @@ body {
   justify-content:center; align-items:center; text-align:center;
   padding:25px; box-shadow:0 10px 30px rgba(0,0,0,0.2);
   background:#ffccff; color:#333; font-size:1.2em;
-  backface-visibility:hidden; transform:rotateY(0deg);
-  transition:transform 0.8s, opacity 0.8s; opacity:0;
+  backface-visibility:hidden; opacity:0; transition:transform 0.8s, opacity 0.8s;
 }
 .page.active { opacity:1; transform:rotateY(0deg); }
 .shimmer {
@@ -60,6 +58,9 @@ body {
 @keyframes float { 0% { transform:translateY(0) rotate(-45deg); opacity:1; } 100% { transform:translateY(-500px) rotate(-45deg); opacity:0; } }
 .line { opacity:0; margin:10px 0; }
 .line.show { opacity:1; transition: opacity 1s; }
+.confetti { position:absolute; width:8px; height:8px; background:red; top:0; animation:fall 3s linear forwards; }
+@keyframes fall { 0%{top:0;} 100%{top:100%;} }
+#bird { position:absolute; top:50%; left:50%; width:80px; opacity:0; transform:translate(-50%, -50%); transition: all 1s; z-index:200; }
 </style>
 </head>
 <body>
@@ -67,7 +68,10 @@ body {
 <audio id="bgMusic" loop autoplay>
   <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
 </audio>
+<audio id="birdChirp" src="https://www.soundjay.com/nature/bird-chirp-1.mp3"></audio>
 <button id="muteBtn">🔊</button>
+
+<img id="bird" src="https://i.postimg.cc/WzvPFY0C/bird.png">
 
 <div class="card" id="card">
   <div class="page page1 active">
@@ -78,7 +82,6 @@ body {
       <div class="flower flower3"></div>
     </div>
   </div>
-
   <div class="page page2">
     <p class="line">En anbu Gayathri,</p>
     <p class="line">Indha ulagathil ennai thedi, nee enakkumunbe indha ulagathirkku vandhu vittai.</p>
@@ -88,7 +91,6 @@ body {
     <p class="line">Idhu polave, namma kaigalai pidithukkonde, namma vaazh naal muzhuvadhum payanikka vendum.</p>
     <p class="line">Naan un kaigalai pidikkum bodhu, indha kaigalai vaazh naal muzhuvadhum padhrama paarthukolven endru, naan un anbu <strong>Chottu</strong> solgiren.</p>
   </div>
-
   <div class="page page3">
     <p class="line">Nee en vaazhkaiyul vandhu, en vaazhkai evalo azhagaaga maari vittadhu.</p>
     <p class="line">Naan unnai thedi kandu pidikka 19 varudangal aagivittadhu.</p>
@@ -97,7 +99,6 @@ body {
     <p class="line">Evalo kashtangal vandhaalum, unnai naan Rani maadhiri paarthukolven.</p>
     <p class="line"><strong>– Chottu</strong></p>
   </div>
-
   <div class="page page4">
     <h1 class="shimmer">I Love You So Much Kulfi 💕</h1>
     <div class="decor">
@@ -115,14 +116,8 @@ const pages = document.querySelectorAll('.page');
 let currentPage = 0;
 const heartsContainer = document.getElementById('hearts');
 const lines = document.querySelectorAll('.line');
-
-document.getElementById('card').addEventListener('click', () => {
-  pages[currentPage].classList.remove('active');
-  currentPage = (currentPage +1) % pages.length;
-  pages[currentPage].classList.add('active');
-  createHearts();
-  animateLines();
-});
+const bird = document.getElementById('bird');
+const birdChirp = document.getElementById('birdChirp');
 
 function createHearts(){
   for(let i=0;i<15;i++){
@@ -143,6 +138,17 @@ function animateLines(){
   });
 }
 
+function createConfetti(){
+  for(let i=0;i<20;i++){
+    const conf = document.createElement('div');
+    conf.classList.add('confetti');
+    conf.style.left=Math.random()*100+"%";
+    conf.style.backgroundColor=['#ff0','#f0f','#0ff','#f8c']['#ffb6c1'];
+    document.body.appendChild(conf);
+    setTimeout(()=> conf.remove(),3000);
+  }
+}
+
 // Music mute/unmute
 const music = document.getElementById('bgMusic');
 const muteBtn = document.getElementById('muteBtn');
@@ -151,10 +157,32 @@ muteBtn.addEventListener('click', ()=>{
   else{ music.pause(); muteBtn.textContent="🔇"; }
 });
 
-// Animate first page lines on load
+// Card click: bird, page flip, hearts, confetti
+document.getElementById('card').addEventListener('click', () => {
+    bird.style.opacity = 1;
+    bird.style.top = "20%";
+    bird.style.transform = "translate(-50%, -50%) scale(1.2)";
+    birdChirp.play();
+
+    setTimeout(()=>{
+        pages[currentPage].classList.remove('active');
+        currentPage = (currentPage +1) % pages.length;
+        pages[currentPage].classList.add('active');
+
+        bird.style.opacity=0;
+        bird.style.top="50%";
+        bird.style.transform="translate(-50%, -50%) scale(1)";
+        birdChirp.pause(); birdChirp.currentTime=0;
+
+        createHearts();
+        createConfetti();
+        animateLines();
+    },1500);
+});
+
 animateLines();
 createHearts();
 </script>
 
 </body>
-  </html>
+</html>
